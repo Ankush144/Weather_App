@@ -1,0 +1,149 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    font-family:consolas;
+}
+.header{
+    /* border:1px solid white; */
+    display:flex;
+    height:max-content;
+    justify-content: left;
+}
+.header h1{
+    margin:1rem;
+    margin-left:2rem;
+}
+body{
+    display: flex;  
+    background-color: #171717;
+    flex-direction: column;
+}
+.box{
+    /* border:10px solid blue; */
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color:#fff;  
+    flex-direction: column;
+    border-radius:1rem;
+    box-shadow: 10px 10px 10px rgb(161, 157, 157);
+    width: 50%;
+    margin: auto;
+    margin-top:5rem;
+    overflow: hidden;
+    height: 20rem;
+    position: relative;
+    z-index: 999;
+    width: max-content;
+}   
+#date , .tempmin_max{
+    font-size:0.9rem;
+    color:grey;
+    margin-top:.5rem;
+}
+.temp{
+    margin-top:1rem;
+}
+.info{
+    /* border:1px solid black; */
+    width: max-content;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.fa-sun{
+    font-size: 4rem;
+}
+.fa-cloud{
+    font-size:2rem;
+    margin:1rem;
+    margin-left:2rem;
+}
+/* .wave-one,.wave-two,.wave-three{
+    width:10rem;
+    height: 10rem;
+} */
+.footer{
+    border:1px solid white;
+    color:grey;
+    text-align: center;
+    width: 100%;
+    font-size: 1rem;
+    position: absolute;
+    top:100vh;  
+}
+ .waves{
+    /* border:1px solid blue; */
+    width:100%;
+    background-color: red;
+    position: absolute;
+    z-index: 2;
+    height:20rem;
+    top:200px;
+    border-radius: 50%;
+}   
+.wave1{
+    top:100px;
+     background-color: cornflowerblue;
+     opacity: 0.3;
+     animation: animation1 infinite 1s;
+}
+.wave2{ 
+    top:110px;  
+    background-color: cornflowerblue;
+    opacity: 0.3;
+    animation: animation2 infinite 1s;
+}
+.wave3{
+    top:120px;
+    background-color: rgb(96, 141, 224);
+    opacity: 0.3;
+    animation: animation1 infinite 1s;
+}
+.info{
+    position: relative;
+    z-index:5;
+}
+.info p{
+    color:blue;
+}
+@keyframes animation1 {
+    0% {
+        transform: rotate(15deg);
+    }
+    20% {
+        transform: rotate(30deg);
+    }
+    40% {
+        transform: rotate(45deg);
+    }
+    60% {
+        transform: rotate(90deg);
+    }
+    80% {
+        transform: rotate(120deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}
+@keyframes animation2 {
+    0% {
+        transform: rotate(-15deg);
+    }
+    20% {
+        transform: rotate(-30deg);
+    }
+    40% {
+        transform: rotate(-45deg);
+    }
+    60% {
+        transform: rotate(-90deg);
+    }
+    80% {
+        transform: rotate(-120deg);
+    }
+    100% {
+        transform: rotate(-180deg);
+    }
+}
