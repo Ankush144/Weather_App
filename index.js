@@ -5,8 +5,17 @@
  
 //reading data from the html file
     const homeFile = fs.readFileSync("home.html","utf-8");
-
-
+//defining replaceVal function here
+const replaceVal = (dummy,orgVal) => {
+    //here dummy is string which contain the code of html file 
+    //here the html code is acting as a string  
+    dummy = dummy.replace("{%tempmax%}",(orgVal.main.temp_max-273).toPrecision(4));
+    dummy = dummy.replace("{%tempmin%}",(orgVal.main.temp_min-273).toPrecision(4)); 
+    dummy = dummy.replace("{%tempval%}",(orgVal.main.temp-273).toPrecision(4));
+    dummy = dummy.replace("{%location%}","Banswara");
+    dummy = dummy.replace("{%country%}","India");
+    return dummy;
+}
 //creating a server
     const server = http.createServer();
 //event handling of request of user
@@ -17,12 +26,9 @@
             //converting json file to object 
             const obj_data = JSON.parse(data);
             const arr = [obj_data];
-            homeFile.replace("{%tempmax%}",obj_data.main.temp_max);
-            homeFile.replace("{%tempmin%}",obj_data.main.temp_min); 
-            homeFile.replace("{%tempval%}",obj_data.main.temp);
-            homeFile.replace("{%location%}","Banswara");
-            homeFile.replace("{%country%}","India");
-            res.end(homeFile);
+            const realdata = replaceVal(homeFile,obj_data);
+            res.write(realdata);
+            res.end();
         })
         .on( "end",(err) => {
             if(err) console.log(err);
