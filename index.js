@@ -19,7 +19,7 @@ const server =  http.createServer((req,res)=>{
             //console.log(arr[0].main.temp);//now data will be in the form of array of objects
             const realTimeData = arr.map( val=> replaceVal(homeFile,val)).join("");
             res.write(realTimeData);
-            //console.log(realTimeData);
+            //console.log(realTimeData)
         })
         .on('end',(err) => {
         if (err) return console.log('connection closed due to errors', err);
