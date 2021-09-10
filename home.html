@@ -185,29 +185,35 @@ body{
     </footer>
     <!-- //script -->
     <script>
-        const curDate =document.getElementById('date');
-        const weathercond = document.getElementById('weathercond');
-        const day = ()=>{
-            const arr = new Array("SUN","MON","TUE","WED","THRUS","FRI","SAT");
-            const today = new Date();
-            const day = today.getDay();
-            return arr[day];
-        }
-        const date =  ()=>{
-            const arr = new Array("JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC");
-            const today_date = new Date();
-            return (arr[today_date.getMonth()]+" "+today_date.getDate());
-        }
-        const time = ()=>{
-            const time = new Date();
-            var hour=time.getHours();
-            var period="PM";
-            if(hour<11){  period = "AM";}
-            if(hour>12){  hour-=12;}
-            const min = time.getMinutes();
-            if(min<10) min='0'+ min; 
-            return (hour+":"+min+period);
-        }
+        //targetting the paragrapgh with id date
+            const curDate =document.getElementById('date');
+        //we will change the icon according to the weather
+            const weathercond = document.getElementById('weathercond');
+        //here day function will return  today's day
+            const day = ()=>{
+                const arr = new Array("SUN","MON","TUE","WED","THRUS","FRI","SAT");
+                const today = new Date();
+                const day = today.getDay();
+                return arr[day];
+            }
+        //here date function will return today's date
+            const date =  ()=>{
+                const arr = new Array("JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC");
+                const today_date = new Date();
+                return (arr[today_date.getMonth()]+" "+today_date.getDate());
+            }
+        //time function will return the current time
+            const time = ()=>{
+                const time = new Date();
+                var hour=time.getHours();
+                var period="PM";
+                if(hour<11){  period = "AM";}
+                if(hour>12){  hour-=12;}
+                const min = time.getMinutes();
+                if(min<10) min='0'+ min; 
+                return (hour+":"+min+period);
+            }
+        //setting up the date
         curDate.innerText=(day()+" | "+date()+" | "+time());
     </script>
 </body>
