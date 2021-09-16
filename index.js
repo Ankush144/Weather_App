@@ -21,7 +21,8 @@ const replaceVal = (dummy,orgVal) => {
 //event handling of request of user
     server.on( "request",( req,res ) => {
         //using npm pacakage module "request" and geting data from api
-        requests( "https://api.openweathermap.org/data/2.5/weather?q=Banswara&appid=60ef9914c7d2f33a55349066c0d59cac")
+        //add appid here , it's kinda secret thing
+        requests( "https://api.openweathermap.org/data/2.5/weather?q=Banswara&appid={appid}")
         .on( "data",(data) => { 
             //converting json file to object 
             const obj_data = JSON.parse(data);
